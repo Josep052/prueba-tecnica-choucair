@@ -6,10 +6,7 @@ import org.openqa.selenium.By;
 
 public class FirstFormLocators extends PageObject {
 
-    public static final Target LINK_PAGE_RECRUITMENT = Target.the("Linktext for page recruitment")
-            .located(By.xpath("//span[normalize-space()='Recruitment']"));
-
-    public static final Target BUTTON_ADD_CANDIDATE = Target.the("Button for add user")
+    public static final Target ADD_CANDIDATE_BUTTON = Target.the("Button for add user")
             .located(By.xpath("//button[normalize-space()='Add']"));
 
     public static final Target FIRST_NAME = Target.the("First name user")
@@ -42,7 +39,5 @@ public class FirstFormLocators extends PageObject {
     public static final Target CHECK_CONSENT = Target.the("Check")
             .located(By.className("oxd-checkbox-input"));
 
-    public static final Target BUTTON_SAVE = Target.the("Button save")
-            .located(By.xpath("//button[normalize-space()='Save']"));
 
 }

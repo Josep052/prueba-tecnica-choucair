@@ -12,7 +12,4 @@ public class ChangesFirstFormLocators extends PageObject {
     public static final Target BUTTON_SCHEDULE_INTERVIEW = Target.the("Button Interview")
             .located(By.xpath("//button[normalize-space()='Schedule Interview']"));
 
-
-    public static final Target BUTTON_SAVE = Target.the("Button save")
-            .located(By.xpath("//button[normalize-space()='Save']"));
 }

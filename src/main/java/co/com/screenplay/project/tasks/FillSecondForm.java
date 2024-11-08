@@ -1,4 +1,5 @@
 package co.com.screenplay.project.tasks;
+import co.com.screenplay.project.ui.CommonLocators;
 import co.com.screenplay.project.ui.SecondFormLocators;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -12,11 +13,11 @@ import java.util.Map;
 import static co.com.screenplay.project.ui.SecondFormLocators.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class CompleteSecondForm implements Task {
+public class FillSecondForm implements Task {
 
     private final Map<String, String > formDataSecondForm;
 
-    public CompleteSecondForm(Map<String, String> formDataSecondForm) {
+    public FillSecondForm(Map<String, String> formDataSecondForm) {
         this.formDataSecondForm = formDataSecondForm;
     }
 
@@ -29,14 +30,14 @@ public class CompleteSecondForm implements Task {
                 Click.on(SecondFormLocators.LISTBOX_OPTION.of(formDataSecondForm.get("Interviewer"))),
                 Enter.theValue(formDataSecondForm.get("Date")).into(DATE_INTERVIEW),
                 Enter.theValue(formDataSecondForm.get("Time")).into(TIME_INTERVIEW),
-                Scroll.to(BUTTON_SAVE),
+                Scroll.to(CommonLocators.BUTTON_SAVE),
                 Enter.theValue(formDataSecondForm.get("Notes")).into(SecondFormLocators.NOTES),
-                Click.on(SecondFormLocators.BUTTON_SAVE)
+                Click.on(CommonLocators.BUTTON_SAVE)
         );
     }
 
-    public static CompleteSecondForm withData(Map<String, String> formData){
+    public static FillSecondForm withData(Map<String, String> formData){
 
-        return new CompleteSecondForm(formData);
+        return new FillSecondForm(formData);
     }
 }

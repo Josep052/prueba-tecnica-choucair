@@ -24,8 +24,4 @@ public class SecondFormLocators extends PageObject {
     public static final Target NOTES = Target.the("Notes")
             .located(By.xpath("//textarea[@placeholder='Type here']"));
 
-    public static final Target BUTTON_SAVE = Target.the("Button save")
-            .located(By.xpath("//button[normalize-space()='Save']"));
-
-
 }

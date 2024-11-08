@@ -14,7 +14,7 @@ Feature: Candidate Hiring Process
     Then save the changes for the first form
     And complete the second form with interview details
       | Interview Title | Interviewer | Notes        | Date       | Time     |
-      | QA Automation   | Orange      | Interview QA | 2024-06-11 | 05:00 PM |
+      | QA Automation   | test        | Interview QA | 2024-06-11 | 05:00 PM |
     Then save the changes for the second form
     And navigates to the main page
     Then the candidate should have the status hired

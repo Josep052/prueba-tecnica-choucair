@@ -1,6 +1,6 @@
 package com.co.prueba.stepdefinitions;
 
-import co.com.screenplay.project.questions.VerifyUserStatus;
+import co.com.screenplay.project.questions.VerifyCandidateStatus;
 import co.com.screenplay.project.tasks.*;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -37,13 +37,13 @@ public class MyStepdefs {
     public void completeTheFirstFormWithCandidateInformation(DataTable dataTable) {
         List<Map<String, String>> formDataList = dataTable.asMaps(String.class, String.class);
         Actor user = OnStage.theActorInTheSpotlight();
-        user.attemptsTo(CompleteFirstForm.withData(formDataList.get(0)));
+        user.attemptsTo(FillFirstForm.withData(formDataList.get(0)));
     }
 
     @Then("save the changes for the first form")
     public void saveTheChangesForTheFirstForm() {
         OnStage.theActorCalled(ACTOR).attemptsTo(
-                SaveChangesFirstForm.saveChanges()
+                SubmitFirstForm.saveChanges()
         );
     }
 
@@ -51,13 +51,13 @@ public class MyStepdefs {
     public void completeTheSecondFormWithInterviewDetails(DataTable dataTable) {
         List<Map<String, String>> formDataList = dataTable.asMaps(String.class, String.class);
         Actor user = OnStage.theActorInTheSpotlight();
-        user.attemptsTo(CompleteSecondForm.withData(formDataList.get(0)));
+        user.attemptsTo(FillSecondForm.withData(formDataList.get(0)));
     }
 
     @Then("save the changes for the second form")
     public void saveTheChangesForTheSecondForm() {
         OnStage.theActorCalled(ACTOR).attemptsTo(
-                SaveChangesSecondForm.saveChanges()
+                SubmitSecondForm.saveChanges()
         );
 
     }
@@ -65,14 +65,14 @@ public class MyStepdefs {
     @And("navigates to the main page")
     public void navigatesToTheMainPage() {
         OnStage.theActorCalled(ACTOR).attemptsTo(
-                NavigateMainPage.mainPage()
+                GoToRecruitmentPage.mainPage()
         );
     }
 
     @Then("the candidate should have the status hired")
     public void theCandidateShouldHaveTheStatusHired() {
         Actor actor = OnStage.theActorInTheSpotlight();
-        boolean isHired = VerifyUserStatus.isHired().answeredBy(actor);
+        boolean isHired = VerifyCandidateStatus.isHired().answeredBy(actor);
         assertThat(isHired).isTrue();
     }
 }
