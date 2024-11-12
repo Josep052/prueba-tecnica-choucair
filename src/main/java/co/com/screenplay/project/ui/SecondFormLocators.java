@@ -13,7 +13,8 @@ public class SecondFormLocators extends PageObject {
             .located(By.xpath("//input[@placeholder='Type for hints...']"));
 
     public static final Target LISTBOX_OPTION = Target.the("Option in listbox")
-            .locatedBy("//div[@role='listbox']//div[contains(., '{0}')]");
+            .locatedBy("//div[@role='listbox']//div[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '{0}')]");
+
 
     public static final Target DATE_INTERVIEW = Target.the("Date interview")
             .located(By.xpath("//input[@placeholder='yyyy-dd-mm']"));
